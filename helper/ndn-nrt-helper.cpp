@@ -4,6 +4,7 @@
 
 #include "ns3/node-container.h"
 
+
 namespace ns3 {
 namespace ndn {
 
@@ -14,7 +15,7 @@ NetworkRegionTableHelper::AddRegionName(Ptr<Node> node, const Name& regionName){
     NS_ASSERT_MSG(l3protocol != 0, "Ndn stack should be installed on the node");
 
     auto networkRegionTable = l3protocol->getForwarder()->getNetworkRegionTable();
-    networkRegionTable.addRegionName(regionName);
+    networkRegionTable.insert(regionName);
 }
 
 void
@@ -31,7 +32,7 @@ NetworkRegionTableHelper::RemoveRegionName(Ptr<Node> node, const Name& regionNam
     NS_ASSERT_MSG(l3protocol != 0, "Ndn stack should be installed on the node");
 
     auto networkRegionTable = l3protocol->getForwarder()->getNetworkRegionTable();
-    networkRegionTable.eraseRegionName(regionName);
+    networkRegionTable.erase(regionName);
 }
 
 void
