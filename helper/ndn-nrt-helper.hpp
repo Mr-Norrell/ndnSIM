@@ -16,11 +16,20 @@
 namespace ns3 {
 namespace ndn {
 
+/**
+ * @ingroup ndn-helpers
+ * @brief Network Region Table Helper
+ *
+ * The NRT Helper interacts directly with Network Region Table by passing parameters
+ * to NRT functions in order to add/remove a prefix to/from the table in one node or
+ * a node container
+ */
+
 class NetworkRegionTableHelper
 {
 public:
     static void
-    AddRegionName(Ptr<Node> node, const Name& regionName);
+    AddRegionName(Ptr<Node>& node, const Name& regionName);
 
     static void
     AddRegionName(NodeContainer& c, const Name& regionName);
